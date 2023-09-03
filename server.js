@@ -3,6 +3,7 @@ import morgan from "morgan";
 import dotenv from "dotenv";
 import colors from "colors";
 import path from 'path'
+import {fileURLToPath} from 'url'
 
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoute.js";
@@ -16,6 +17,9 @@ dotenv.config();
 
 //databse connect
 connectDB();
+// esmodule fix
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 //rest objects
 const app = express();
 
